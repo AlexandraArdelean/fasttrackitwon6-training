@@ -51,14 +51,17 @@ public class Confidential {
         String[] words = printArray(text);
         String confidential = "";
         for (String word : words) {
-            if (contains(taboo, word)) {
-                String redacted = redact(word);
-                confidential += redacted;
-            } else {
-                confidential += word;
-            }
-            confidential += " ";
+            String redacted = detectRedacted(taboo, word);
+            confidential += redacted + " ";
         }
         return confidential.trim();
+    }
+
+    private static String detectRedacted(String[] taboo, String word) {
+        String redacted = word;
+        if (contains(taboo, word)) {
+            redacted = redact(word);
+        }
+        return redacted;
     }
 }
