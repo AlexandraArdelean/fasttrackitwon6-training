@@ -4,31 +4,33 @@ import java.util.Arrays;
 
 public class Confidential {
     public static void main(String[] args) {
-//        System.out.println(countChar("ana", 'a'));
-//        redact("word");
-//        System.out.println(contains(new String[]{"Ana", "are", "mere"}, "are"));
-//        System.out.println(printArray("Ana are mere"));
-        confidentialString("Ana are mere multe si mere dulci", new String[]{"Ana", "mere"});
+        System.out.println(countChar("ana", 'a'));
+        redact("word");
+        System.out.println(contains(new String[]{"Ana", "are", "mere"}, "are"));
+        System.out.println(Arrays.toString(printArray("Ana are mere")));
+        System.out.println(confidentialString("Ana are mere multe si mere dulci", new String[]{"Ana", "mere"}));
     }
 
     public static int countChar(String s, char c) {
-        s = s.toLowerCase();
         int count = 0;
-        char temp;
-        for (int i = 0; i < s.length(); i++) {
-            temp = s.charAt(i);
-            if (temp == c) {
+        for (char ch : s.toCharArray()) {
+            if (ch == c) {
                 count++;
             }
         }
         return count;
     }
 
-    public static void redact(String s) {
-        s.toLowerCase();
-        String str = new String();
+    public static String redact(String s) {
+        String str = "";
         str = s.replaceAll("[a-zA-Z]", "*");
-        System.out.print(str + " ");
+        return str;
+
+//        String redacted="";
+//        for (char c: s.toCharArray()){
+//            redacted += "*";
+//        }
+//        return redacted;
     }
 
     public static boolean contains(String[] string, String word) {
@@ -41,19 +43,22 @@ public class Confidential {
         return found;
     }
 
-    public static String printArray(String string) {
-        String[] words = string.split(" ");
-        return Arrays.toString(words);
+    public static String[] printArray(String string) {
+        return string.split(" ");
     }
 
-    public static void confidentialString(String phrase, String[] words) {
-        if (countChar(phrase, 'a') > 0) {
-            if (contains(words, phrase)) {
-                for (int i = 0; i < words.length; i++) {
-                    redact(words[i]);
-                }
+    public static String confidentialString(String text, String[] taboo) {
+        String[] words = printArray(text);
+        String confidential = "";
+        for (String word : words) {
+            if (contains(taboo, word)) {
+                String redacted = redact(word);
+                confidential += redacted;
+            } else {
+                confidential += word;
             }
+            confidential += " ";
         }
-        printArray(phrase);
+        return confidential.trim();
     }
 }
