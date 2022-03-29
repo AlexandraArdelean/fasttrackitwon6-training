@@ -17,7 +17,7 @@ public class Agenda {
         System.out.println(remove(agenda, 10));
         System.out.println(Arrays.toString(agenda));
         System.out.println(search(agenda, 35));
-        System.out.println(Arrays.toString(agenda));
+      //  System.out.println(Arrays.toString(agenda));
     }
 
     public static int add(int[] arr, int nr) {

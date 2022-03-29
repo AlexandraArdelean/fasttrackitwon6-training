@@ -5,10 +5,10 @@ import java.util.Random;
 
 public class Practice {
     public static void main(String[] args) {
-        int[] arr = {10, 9, 2, 15, 22, 8, 3};
+        int[] arr = {10, 9, 1, 5, 4, 2, 15, 22, 8, 3};
         System.out.println("Produsul elementelor din array este: " + calculateProduct(arr));
         System.out.println("Totalul numerelor impare din sir: " + countOddNumbers(arr));
-        getSmallerNumbers(arr, 10);
+        System.out.println(Arrays.toString(returnSmallerNumbers(arr, 10)));
         receiveDonations(3000);
         maxDonationsNumber(3000, 10);
         System.out.println(printPhrase("Ana are mere.Merele sunt bune si coapte.Ana ar vrea si niste pere, dar nu mai are bani."));
@@ -34,13 +34,18 @@ public class Practice {
         return count;
     }
 
-    public static void getSmallerNumbers(int[] array, int n) {
-        // 23, 15, 14, 3, 5, 12   n =15 => 14,3,5
-        for (int i = 0; i< array.length; i++) {
+    public static int[] returnSmallerNumbers(int[] array, int n) {
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
             if (array[i] < n) {
-                System.out.println(array[i] );
+                count++;
             }
         }
+        Arrays.sort(array);
+        int[] result;
+        result = Arrays.copyOf(array, count);
+
+        return result;
 
 
     }
