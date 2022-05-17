@@ -14,6 +14,7 @@ public class MainBasket {
         Basket basket = new Basket(list);
         basket.addFruits("Apple");
 
+
         System.out.println(basket.distinct());
         System.out.println(basket.count());
         System.out.println(basket.customCount());

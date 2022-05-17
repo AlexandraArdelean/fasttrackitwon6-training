@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Basket {
+
    private List<String> basket;
 
     public Basket(List<String> basket) {
