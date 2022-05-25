@@ -12,17 +12,16 @@ public class ClassroomMain {
         StudentGradeReader studentGradeReader = new StudentGradeReader();
         List<StudentGrade> students = studentGradeReader.readStudentsFromFile("file/grades.txt");
         Classroom classroom = new Classroom(students);
-        System.out.println(students);
-
-        System.out.println(classroom.getGradesForDiscipline("Computer Science"));
-        System.out.println(classroom.getGradesForStudent("Ealhstan Saira"));
-        System.out.println(classroom.getMaxGrade("Physics"));
-        System.out.println(classroom.getMaxGrade());
-        System.out.println(classroom.getAverageGrade("Physics"));
-        System.out.println(classroom.getWorstGrade("Physics"));
+//        System.out.println(students);
+//
+//        System.out.println(classroom.getGradesForDiscipline("Computer Science"));
+//        System.out.println(classroom.getGradesForStudent( "Ealhstan Saira"));
+//        System.out.println(classroom.getMaxGrade("Physics"));
+//        System.out.println(classroom.getMaxGrade());
+//        System.out.println(classroom.getAverageGrade("Physics"));
+//        System.out.println(classroom.getWorstGrade("Physics"));
 
         ReportGenerator reportGenerator = new ReportGenerator();
-        reportGenerator.generateReport(classroom.getMaxGrade("Physics"), classroom.getAverageGrade("Physics"),
-                classroom.getWorstGrade("Physics"));
-    }
+        reportGenerator.generateReport(classroom, "Physics");
+  }
 }

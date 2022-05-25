@@ -4,13 +4,13 @@ import main.ro.fasttrackitwon6.homework.lab12.exercise1.StudentGrade;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
 
 public class Classroom {
-    private List<StudentGrade> studentGradeList;
+    private final List<StudentGrade> studentGradeList;
 
     public Classroom(List<StudentGrade> studentGradeList) {
-        this.studentGradeList = studentGradeList;
+        this.studentGradeList = new ArrayList<>(studentGradeList);
     }
 
     public List<Integer> getGradesForDiscipline(String discipline) {
@@ -23,12 +23,13 @@ public class Classroom {
         return grades;
     }
 
-    public List<Integer> getGradesForStudent(String student) {
+    public List<Integer> getGradesForStudent(String studentName) {
         List<Integer> grades = new ArrayList<>();
-        for (StudentGrade s : studentGradeList) {
-            if (s.getName().equals(student)) {
-                grades.add(s.getGrade());
+        for (StudentGrade student : studentGradeList) {
+            if (student.getName().equals(studentName)) {
+                grades.add(student.getGrade());
             }
+
         }
         return grades;
     }
@@ -47,7 +48,7 @@ public class Classroom {
     }
 
     public StudentGrade getMaxGrade() {
-        StudentGrade bestStudent = new StudentGrade("","",0);
+        StudentGrade bestStudent = new StudentGrade("", "", 0);
         for (StudentGrade student : studentGradeList) {
             if (student.getGrade() > bestStudent.getGrade()) {
                 bestStudent = student;
@@ -69,16 +70,17 @@ public class Classroom {
     }
 
     public StudentGrade getWorstGrade(String discipline) {
-        StudentGrade worstStudent = new StudentGrade("","",17);
+        int worstGrade = Integer.MAX_VALUE;
+        StudentGrade worstStudent = null;
         for (StudentGrade student : studentGradeList) {
-            if (student.getDiscipline().equals(discipline)) {
-                if (student.getGrade() < worstStudent.getGrade()) {
-                    worstStudent = student;
-                }
-
+            if (student.getDiscipline().equals(discipline)
+                    && student.getGrade() < worstGrade) {
+                worstGrade = student.getGrade();
+                worstStudent = student;
             }
         }
         return worstStudent;
+
     }
 
 

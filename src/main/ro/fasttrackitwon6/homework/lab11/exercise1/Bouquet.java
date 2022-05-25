@@ -1,38 +1,30 @@
 package main.ro.fasttrackitwon6.homework.lab11.exercise1;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 
-public class Bouquet {
-    private final HashSet<String> bouquet;
 
-    public Bouquet(HashSet<String> bouquet) {
-        this.bouquet = bouquet;
+public class Bouquet {
+    private final HashSet<Flower> bouquet;
+
+    public Bouquet(HashSet<Flower> flowers) {
+        this.bouquet = flowers;
     }
 
-    public HashSet<String> getBouquet() {
+    public HashSet<Flower> getBouquet() {
         return bouquet;
     }
 
-    public void addFlower(String flower){
+    public void addFlower(Flower flower){
         bouquet.add(flower);
     }
 
-    public Collection<String> getAllFlowers(){
+    public HashSet<Flower> getAllFlowers(){
         return new HashSet<>(this.bouquet);
     }
 
-    public void removeFlower(String flowerToRemove){
-        bouquet.remove(flowerToRemove);
-        System.out.println("Flower: " + flowerToRemove + " was removed from bouquet.");
-    }
-
-    @Override
-    public String toString() {
-        return "Bouquet{" +
-                "bouquet=" + bouquet +
-                '}';
+    public void removeFlower(HashSet<Flower> bouquet, String flowerName){
+        bouquet.remove(flowerName);
+        System.out.println("Flower: " + flowerName + " was removed from bouquet.");
     }
 
 

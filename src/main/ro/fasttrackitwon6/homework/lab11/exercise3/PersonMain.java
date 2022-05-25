@@ -9,12 +9,12 @@ public class PersonMain {
         personList.add(new Person("Ana Marinescu", 45, "blonde hair"));
         personList.add(new Person("Andrei Debreceni", 25, "black hair"));
 
-        createListOfPersonsName(personList);
+       // createListOfPersonsName(personList);
         createMapOfPersonsNameAndAge(personList);
-        getOlderPersons(personList, 33);
-        createMapOfPersonsNameAndHairColour(personList);
-        sortListByAgeOrHairColour(personList);
-        sortByLastLetterFromName(personList);
+//        getOlderPersons(personList, 33);
+//        createMapOfPersonsNameAndHairColour(personList);
+//        sortListByAgeOrHairColour(personList);
+//        sortByLastLetterFromName(personList);
 
     }
 

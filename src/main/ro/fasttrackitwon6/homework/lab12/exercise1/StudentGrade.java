@@ -3,12 +3,10 @@ package main.ro.fasttrackitwon6.homework.lab12.exercise1;
 import java.util.Objects;
 
 public class StudentGrade {
-    private  String name;
-    private  String discipline;
-    private  Integer grade;
+    private final String name;
+    private final String discipline;
+    private final Integer grade;
 
-    public StudentGrade() {
-    }
 
     public StudentGrade(String name, String discipline, Integer grade) {
         this.name = name;
