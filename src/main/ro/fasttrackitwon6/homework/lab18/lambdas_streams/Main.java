@@ -10,6 +10,8 @@ public class Main {
         personList.add(new Person("Ion", "Pop", 25, "Cluj"));
         personList.add(new Person("Alex", "Dumitrescu", 68, "Oradea"));
         personList.add(new Person("Alex", "Dragos", 17, "Cluj"));
+        personList.add(new Person("Alexandra", "Ardelean", 31, "Baia Mare"));
+        personList.add(new Person("Adelina", "Ardelean", 58, "Baia Mare"));
 
         PersonService personService = new PersonService(personList);
         System.out.println(personService.getAllNames());
@@ -23,6 +25,8 @@ public class Main {
         System.out.println(personService.sortByLastName());
         System.out.println(personService.sortByFirstNameLastNameAndAge());
         System.out.println(personService.groupByAge());
+
+        System.out.println(personService.listFirstNamesUniquely());
 
 
     }

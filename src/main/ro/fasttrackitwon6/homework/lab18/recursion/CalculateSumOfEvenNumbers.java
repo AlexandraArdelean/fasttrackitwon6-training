@@ -1,4 +1,4 @@
-package main.ro.fasttrackitwon6.homework.lab18;
+package main.ro.fasttrackitwon6.homework.lab18.recursion;
 
 import java.util.Scanner;
 

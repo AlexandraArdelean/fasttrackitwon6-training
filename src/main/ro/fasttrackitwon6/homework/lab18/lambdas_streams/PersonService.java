@@ -53,9 +53,12 @@ public class PersonService {
                 .filter(person -> person.firstName().startsWith("A")).toList();
     }
 
-    public List<String> listFirstNameUniquely() {
-        //TODO
-        return null;
+    public List<String> listFirstNamesUniquely() {
+        // not sure about the implementation, because I didn't really  understand what "uniquely" refers to
+        return personList.stream()
+                .sorted(Comparator.comparing(Person::age))
+                .map(Person::firstName)
+                .toList();
     }
 
     public List<Person> sortByFirstName() {
