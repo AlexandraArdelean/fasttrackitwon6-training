@@ -24,12 +24,13 @@ public class PersonService {
 
     public List<Person> findAllPersonsFromCluj() {
         return personList.stream()
-                .filter(person -> person.city().equals("Cluj")).toList();
+                .filter(person -> "Cluj".equals(person.city()))
+                .toList();
     }
 
     public List<Person> findAllPersonsFromIasiOrCluj() {
         return personList.stream()
-                .filter(person -> person.city().equals("Cluj") || person.city().equals("Iasi")).toList();
+                .filter(person -> "Cluj".equals(person.city()) ||"Iasi".equals(person.city())).toList();
     }
 
     public List<String> getNamesInCapitalLetter() {
@@ -44,7 +45,7 @@ public class PersonService {
 
     public List<Person> getPersonsWithAgeBetweenRange() {
         return personList.stream()
-                .filter(person -> person.age() < 18 || person.age() < 60).toList();
+                .filter(person -> person.age() >= 18 && person.age() < 60).toList();
 
     }
 
@@ -54,10 +55,9 @@ public class PersonService {
     }
 
     public List<String> listFirstNamesUniquely() {
-        // not sure about the implementation, because I didn't really  understand what "uniquely" refers to
         return personList.stream()
-                .sorted(Comparator.comparing(Person::age))
                 .map(Person::firstName)
+                .distinct()
                 .toList();
     }
 
